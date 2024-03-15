@@ -1,0 +1,19 @@
+const CategorySkalaton = () => {
+  return (
+    <div>
+      <div className="flex items-center justify-center mx-32 gap-8">
+        <div className="w-1/3">
+          <div className="max-w-sm rounded overflow-hidden shadow-lg animate-pulse">
+            <div className="h-48 bg-gray-300" />
+            <div className="px-6 py-4">
+              <div className="h-6 bg-gray-300 mb-2" />
+              <div className="h-4 bg-gray-300 w-2/3" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CategorySkalaton;
