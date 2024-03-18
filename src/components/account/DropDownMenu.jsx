@@ -1,6 +1,6 @@
 "use client";
 import { Dropdown } from "keep-react";
-import { CaretRight, Gear, Money, SignOut, SquaresFour } from "phosphor-react";
+import { CaretRight, Gear,SignOut, SquaresFour } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { removeSession } from "../../utility/SessionHelper";
 

@@ -11,7 +11,7 @@ const Landing = () => {
       className="w-[100%] md:h-screen h-[400px] md:px-20 bg-no-repeat bg-cover object-cover grid grid-cols-1 md:grid-cols-2"
       style={{ backgroundImage: `url(${HeroBG})` }}
     >
-      <div className="lg:pt-52 pt-20 md:text-left md:px-0 px-5">
+      <div className="lg:pt-32 pt-20 md:text-left md:px-0 px-5">
         <h1 className="text-5xl md:text-10xl tracking-wide text-black md:block">
           The Best Program <br /> to{" "}
           <span className="text-green-400">Enroll</span> for <br /> Exchange

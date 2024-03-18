@@ -2,7 +2,8 @@ import axios from "axios";
 import { ErrorToast, SuccessToast } from "../utility/FormHelper";
 import { getToken, setToken, setUserDetails } from "../utility/SessionHelper";
 
-const BASE_URL = `https://e-learning-server-3wxl.onrender.com/api/v1`;
+// const BASE_URL = `https://e-learning-server-3wxl.onrender.com/api/v1`;
+const BASE_URL = `https://e-learning-server-eu4f.onrender.com/api/v1`;
 
 const Headers = { headers: { token: getToken() } };
 

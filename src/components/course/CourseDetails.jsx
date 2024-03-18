@@ -20,6 +20,7 @@ const CourseDetails = () => {
       setCourseInfo(data);
     })();
   }, [id]);
+  console.log(courseInfo)
 
   const handleEnrollCourse = async () => {
     setBtnLoader(true);
