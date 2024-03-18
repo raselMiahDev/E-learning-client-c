@@ -1,7 +1,7 @@
 import { FaCheckDouble } from "react-icons/fa6";
 import aboutBanner from "../assets/about-banner.jpg";
-import aboutShape1 from "../assets/about-shape-1.svg";
-import aboutShape2 from "../assets/about-shape-2.svg";
+import aboutShape1 from "../assets/a-shape-1.svg";
+import aboutShape2 from "../assets/a-shape-2.svg";
 
 const AboutUs = () => {
   return (

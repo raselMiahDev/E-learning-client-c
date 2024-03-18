@@ -1,4 +1,4 @@
-import Loader from "../../assets/loader.svg";
+import Loader from "../../assets/loo.svg";
 const Loading = () => {
   return (
     <div className="min-h-screen flex justify-center items-center">
