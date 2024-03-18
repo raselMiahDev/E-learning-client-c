@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { getToken } from "../../utility/SessionHelper";
 import {
   COURSE_DETAILS_API_REQUEST,
   ENROLL_COURSE_API_REQUEST,
@@ -20,13 +21,17 @@ const CourseDetails = () => {
       setCourseInfo(data);
     })();
   }, [id]);
-  console.log(courseInfo)
 
   const handleEnrollCourse = async () => {
-    setBtnLoader(true);
-    await ENROLL_COURSE_API_REQUEST(id);
-    setBtnLoader(false);
-    navigate("/profile");
+    if(getToken()){
+      setBtnLoader(true);
+      await ENROLL_COURSE_API_REQUEST(id);
+      setBtnLoader(false);
+      navigate("/profile");
+    }else{
+      navigate("/login")
+    }
+
   };
 
   return (

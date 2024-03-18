@@ -1,4 +1,3 @@
 # Front-end (Client Side)
 
-Package: `npm install react-router-dom axios react-hot-toast`
-"# E-Learning-client" 
+live link : https://e-learning-platform-one.vercel.app/
