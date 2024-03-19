@@ -3,7 +3,19 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SectionTitle from "./common/SectionTitle";
+import { ALL_COURSE_API_REQUEST } from "../apiRequest/API";
+import { useEffect, useState } from "react";
+
 const TestimonialSlide = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await ALL_COURSE_API_REQUEST();
+      setData(data);
+    })();
+  }, []);
   const breakpoints = {
     // when window width is >= 390px
     390: {
@@ -21,89 +33,51 @@ const TestimonialSlide = () => {
       spaceBetween: 30,
     },
   };
-  const review = [
-    {
-      id: 1,
-      image: "https://tecdn.b-cdn.net/img/Photos/Avatars/img%20%2810%29.jpg",
-      name: "Anna Smith",
-      comments:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam sapiente molestiae numquam quas, voluptates omnis nulla eaodio quia similique corrupti magnam.",
-    },
-    {
-      id: 2,
-      image: "https://tecdn.b-cdn.net/img/Photos/Avatars/img%20%2810%29.jpg",
-      name: "Anna Smith",
-      comments:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam sapiente molestiae numquam quas, voluptates omnis nulla eaodio quia similique corrupti magnam.",
-    },
-    {
-      id: 3,
-      image: "https://tecdn.b-cdn.net/img/Photos/Avatars/img%20%2810%29.jpg",
-      name: "Anna Smith",
-      comments:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam sapiente molestiae numquam quas, voluptates omnis nulla eaodio quia similique corrupti magnam.",
-    },
-    {
-      id: 4,
-      image: "https://tecdn.b-cdn.net/img/Photos/Avatars/img%20%2810%29.jpg",
-      name: "Anna Smith",
-      comments:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam sapiente molestiae numquam quas, voluptates omnis nulla eaodio quia similique corrupti magnam.",
-    },
-    {
-      id: 5,
-      image: "https://tecdn.b-cdn.net/img/Photos/Avatars/img%20%2810%29.jpg",
-      name: "Anna Smith",
-      comments:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam sapiente molestiae numquam quas, voluptates omnis nulla eaodio quia similique corrupti magnam.",
-    },
-  ];
-
+  console.log(data)
   return (
-    <div className="bg-gradient-to-b from-slate-50 to-cyan-100 py-2 md:py-8">
-      <div className="text-center pb-3 md:pb-10">
+    <div className="p-5 md:p-20">
+      <div className="pb-3 md:pb-10">
         <h2
-          className="text-6xl font-bold text-center text-black tracking-wide"
+          className="text-6xl font-bold text-black tracking-wide"
           style={{ fontFamily: "Rowdies" }}
         >
-          <span className="text-[#2AAA94]">Testimonials</span>
+          <SectionTitle title="Related Course" des="Explore more helpfull module"/>
         </h2>
-        <p className="font-bold">What our student say about us</p>
       </div>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={3}
         spaceBetween={30}
         breakpoints={breakpoints}
         loop={true}
         autoplay={{
-          delay: 4000,
+          delay: 6000,
           disableOnInteraction: false,
         }}
-        speed={600}
+        speed={800}
         freeMode={true}
         pagination={{
           clickable: true,
         }}
         modules={[FreeMode, Autoplay]}
       >
-        {review.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div className="block rounded-lg bg-white p-8">
+        {data.map((item) => (
+          <SwiperSlide key={item['_id']}>
+            <div className="block rounded-lg hover:border-green-700 cursor-pointer h-auto bg-slate-50">
               <div className="">
-                <div className="flex justify-center">
+                <div className="p-5 rounded-2xl">
                   <img
-                    src={item.image}
-                    className="rounded-full border-2"
-                    width={70}
-                    alt={item.name}
+                    src={item?.thumbnail.map((url) => url.url)}
+                    className="w-full rounded-xl h-64"
+                    alt={item}
                   />
                 </div>
-                <p className="my-2 text-xl text-center font-semibold">
-                  {item.name}
-                </p>
-              </div>
-              <div>
-                <p className="text-center">{item.comments}</p>
+
+                <div className="p-5">
+                  <h1 className="text-4xl text-slate-800">
+                    {item.title.substring(0,22)}
+                  </h1>
+                  <p className="text-sm text-slate-600">{item?.['description'].slice(0,80)}...</p>
+                </div>
               </div>
             </div>
           </SwiperSlide>

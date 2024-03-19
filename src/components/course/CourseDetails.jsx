@@ -8,6 +8,8 @@ import {
 import Loading from "../common/Loader";
 import AccordionComponent from "./Accordion";
 import SubmitButton from "../common/SubmitButton";
+import TestimonialSlide from "../TestimonialSlide";
+import { FcOk } from "react-icons/fc";
 
 const CourseDetails = () => {
   const navigate = useNavigate();
@@ -21,21 +23,22 @@ const CourseDetails = () => {
       setCourseInfo(data);
     })();
   }, [id]);
+  console.log(courseInfo)
 
   const handleEnrollCourse = async () => {
     if(getToken()){
       setBtnLoader(true);
       await ENROLL_COURSE_API_REQUEST(id);
       setBtnLoader(false);
-      navigate("/profile");
+      navigate("/https://e-learning-platform-one.vercel.app/profile");
     }else{
-      navigate("/login")
+      navigate("/https://e-learning-platform-one.vercel.app/login")
     }
 
   };
 
   return (
-    <>
+    <div>
       {courseInfo.length === 0 ? (
         <Loading />
       ) : (
@@ -85,8 +88,7 @@ const CourseDetails = () => {
                   <div className="border border-gray-50 rounded mb-10">
                     <ul className="grid grid-cols-2 text-black px-7 py-6 gap-7 list-disc text-[15px]">
                       <li>
-                        নিনিয়ম মুখস্থ না করে প্র্যাকটিকাল উদাহরণের মাধ্যমে
-                        ইংরেজি গ্রামার শেখার সহজ উপায়।
+                        {item?.courseAchievement}
                       </li>
                     </ul>
                   </div>
@@ -101,8 +103,8 @@ const CourseDetails = () => {
                 </div>
               </section>
 
-              <section className="md:order-last order-first ">
-                <div className="rounded border border-gray-50 md:m-0 m-[-35px] mt-10 ">
+              <section className="md:order-last order-first md:pt-10">
+                <div className="rounded border border-gray-50 md:m-0 m-[-35px] mt-10 hover:shadow-2xl cursor-pointer">
                   <div className="">
                     <img
                       src={item?.thumbnail.map((url) => url.url)}
@@ -110,24 +112,38 @@ const CourseDetails = () => {
                       className="w-[650px]"
                     />
 
-                    <h1 className="text-3xl text-gray-900 font-bold mt-5 mb-5 mx-4">
-                      ${item.price}
-                    </h1>
+                    <div className="p-5 text-black">
+                      <h1 className="text-2xl ">{item?.title}</h1>
+
+                      <ul>
+                         <li className="text-md flex items-center gap-2">
+                           <FcOk />Duration : {item?.courseDuration} Months
+                        </li>
+                        <li className="text-md flex items-center gap-2">
+                           <FcOk />Lavel : {item?.courseLevel}
+                        </li>
+                        <li className="text-md flex items-center gap-2">
+                           <FcOk />Price : {item?.price} BDT
+                        </li>
+                        <li className="text-md flex items-center gap-2">
+                           <FcOk />Enrolled : 30
+                        </li>
+                        <li className="text-md flex items-center gap-2">
+                           <FcOk />Lifetime Access
+                        </li>
+                        <li className="text-md flex items-center gap-2">
+                           <FcOk />Lavel : {item?.courseLevel}
+                        </li>
+                      </ul>
+                    </div>
 
                     <div className="mx-5 mb-5">
                       <SubmitButton
                         onClick={handleEnrollCourse}
                         submit={btnLoader}
                         text="Enroll Now"
-                        className="btn bg-green-300 border-none text-white text-bold text-lg w-full"
+                        className="btn bg-green-400 border-none text-white text-bold text-lg w-full"
                       />
-                    </div>
-
-                    <div className="mx-10 mb-8 mt-7 text-[15px] text-gray-800">
-                      <ul className="list-disc">
-                        {/* <li className="my-2">কোর্সটি করছেন ১৭৫৮৯ জন</li>
-                        <li className="my-2">সময়সীমা ৬ মাস</li> */}
-                      </ul>
                     </div>
                   </div>
                 </div>
@@ -136,7 +152,8 @@ const CourseDetails = () => {
           ))}
         </div>
       )}
-    </>
+      <TestimonialSlide/>
+    </div>
   );
 };
 
