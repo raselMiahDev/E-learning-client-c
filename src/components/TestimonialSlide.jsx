@@ -18,14 +18,14 @@ const TestimonialSlide = () => {
   }, []);
   const breakpoints = {
     // when window width is >= 390px
-    390: {
+    328: {
       slidesPerView: 1,
       spaceBetween: 10,
     },
     // when window width is >= 768px
     768: {
-      slidesPerView: 2,
-      spaceBetween: 20,
+      slidesPerView: 1,
+      spaceBetween: 10,
     },
     // when window width is >= 1200px
     1200: {
@@ -33,7 +33,6 @@ const TestimonialSlide = () => {
       spaceBetween: 30,
     },
   };
-  console.log(data)
   return (
     <div className="p-5 md:p-20">
       <div className="pb-3 md:pb-10">
