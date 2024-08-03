@@ -32,7 +32,7 @@ const CourseDetails = () => {
             {courseInfo.map((item) => (
               <div
                 key={item._id}
-                className="md:mx-auto max-w-screen-xl gap-16 px-12 md:flex grid grid-cols-1"
+                className="md:mx-auto max-w-screen-xl gap-16 px-10 md:flex grid grid-cols-1"
               >
                 <section className="ml-[-10%] mr-[-10%] md:ml-0 md:mr-0 md:w-full">
                   <div>

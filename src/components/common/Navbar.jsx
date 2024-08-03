@@ -49,11 +49,11 @@ export function Navbar() {
               />
             </Link>
             <Link to="/">
-              <span className="font-bold">Edujar</span>
+              <span className="font-bold">E-School</span>
             </Link>
           </div>
           <div className="hidden lg:block">
-            <ul className="inline-flex space-x-8">
+            <ul className="flex space-x-8 ">
               {menuItems.map((item) => (
                 <li key={item.name}>
                   <NavLink
@@ -75,12 +75,6 @@ export function Navbar() {
               {getToken() ? (
                 <>
                   <DropDownMenu />
-                  <span
-                    onClick={handleLogout}
-                    className="text-gray-800 hover:text-green-500 cursor-pointer"
-                  >
-                    Logout
-                  </span>
                 </>
               ) : (
                 <>
@@ -124,7 +118,7 @@ export function Navbar() {
                           src={logo}
                           alt="logo"
                         />
-                        <p className="font-bold">Edujar</p>
+                        <p className="font-bold hidden md:block">E-School</p>
                       </Link>
                     </div>
                     <div className="-mr-2">
@@ -174,7 +168,7 @@ export function Navbar() {
                                   : " text-gray-800 hover:text-green-500"
                               }
                             >
-                              <CgProfile size={25} />
+                              <span>Profile</span>
                             </NavLink>
                             <span
                               onClick={handleLogout}

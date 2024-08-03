@@ -78,7 +78,7 @@ const CourseList = ({ course }) => {
           </ul>
         </SearchBar>
       </div>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 lg:gap-32 xl:grid-cols-5 gap-4 justify-center">
+      <div className="grid md:grid-cols-3 lg:grid-cols-3 lg:gap-32 xl:grid-cols-4 gap-4 justify-center">
         {course.map((item) => (
           <Link key={item["_id"]} to={`/course-details/${item["_id"]}`}>
             <div className="w-[400px] md:w-[250px] lg:w-[280px] hover:shadow-xl transition duration-600 cursor-pointer">

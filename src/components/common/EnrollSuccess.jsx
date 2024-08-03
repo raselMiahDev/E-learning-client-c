@@ -18,8 +18,8 @@ const EnrollSuccess = () => {
             <p className="text-gray-600 my-2">Thank you for completing your secure online payment.</p>
             <p> Have a great day! </p>
             <div className="py-10 text-center">
-              <Link to="/" className="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
-                Home
+              <Link to="/profile" className="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
+                Dashboard
               </Link>
             </div>
           </div>

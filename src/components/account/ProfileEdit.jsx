@@ -9,7 +9,6 @@ const ProfileEdit = () => {
   const [data, setData] = useState([]); //get user profile data
   const [image, setImage] = useState(null); // Use null initially for image state
   const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
 
@@ -23,7 +22,6 @@ const ProfileEdit = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("fullName", fullName);
-    formData.append("email", email);
     formData.append("phoneNumber", phoneNumber);
     formData.append("address", address);
     if (image) {

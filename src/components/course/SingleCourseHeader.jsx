@@ -1,17 +1,17 @@
-import image from "../../assets/Girl.png";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FcOk } from "react-icons/fc";
 import Loading from "../common/Loader";
 import SubmitButton from "../common/SubmitButton";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getToken } from "../../utility/SessionHelper";
+import { ENROLL_COURSE_API_REQUEST } from "../../apiRequest/API";
 
 const SingleCourseHeader = ({ data }) => {
   const [btnLoader, setBtnLoader] = useState(false);
   const navigate = useNavigate();
   const star = 5;
-
+  const { id } = useParams();
   const stars = Array.from({ length: 7 }, (_, index) => {
     const halfNumber = index + 0.5;
 
@@ -32,9 +32,9 @@ const SingleCourseHeader = ({ data }) => {
       setBtnLoader(true);
       await ENROLL_COURSE_API_REQUEST(id);
       setBtnLoader(false);
-      navigate("/https://e-learning-platform-one.vercel.app/profile");
+      navigate("/enroll-success");
     } else {
-      navigate("/https://e-learning-platform-one.vercel.app/login");
+      navigate("/login");
     }
   };
   return (
@@ -93,7 +93,7 @@ const SingleCourseHeader = ({ data }) => {
             {data.map((item) => (
               <div
                 key={item._id}
-                className="md:mx-auto max-w-screen-xl gap-16 md:flex grid grid-cols-1 bg-white"
+                className="md:mx-auto max-w-screen-xl gap-16 md:flex grid grid-cols-1"
               >
                 <section className="md:order-last order-first md:pt-0">
                   <div className="rounded border border-gray-50 md:m-0 m-[-35px] mt-10 hover:shadow-2xl cursor-pointer">
