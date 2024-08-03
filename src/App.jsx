@@ -12,6 +12,7 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import RegistrationPage from "./pages/RegistrationPage.jsx";
 import ModuleExplorePage from "./pages/ModuleExplorePage.jsx";
 import LessonModule from "./components/lessonModule/LessonModule.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/all-courses" element={<AllCourses />} />
         <Route path="/blogs/:id" element={<BlogDetailsPage />} />
         <Route path="/enroll-success" element={<EnrollSuccess />} />
+        <Route path="/contact" element={<ContactPage/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
