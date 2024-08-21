@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IoMdCheckmark } from "react-icons/io";
+import { CiEdit } from "react-icons/ci";
 import {
   GET_USER_PROFILE_DETAILS_API_REQUEST,
   USER_PROFILE_UPDATE_API_REQUEST,
@@ -50,9 +51,9 @@ const ProfileEdit = () => {
               alt="User Profile"
             />
           </div>
-          <div className="pt-5 text-center">
+          <div className="pt-5">
             <input
-              className="border-dotted border-green-500 border-2 p-1"
+              className="p-1"
               type="file"
               onChange={(e) => {
                 const file = e.target.files[0];
@@ -63,9 +64,9 @@ const ProfileEdit = () => {
 
           <div className="mt-11 h-full w-full">
             <div>
-              <label className="text-[13px] font-semibold text-gray-800 tracking-wide">
-                Full Name
-              </label>
+            <label className="text-[13px] font-semibold text-gray-800 tracking-wide">
+            Full Name
+              </label> <br />
               <input
                 onChange={(e) => setFullName(e.target.value)}
                 defaultValue={data.fullName}
@@ -77,7 +78,7 @@ const ProfileEdit = () => {
             <div>
               <label className="text-[13px] font-semibold text-gray-800 tracking-wide">
                 Email
-              </label>
+              </label><br />
               <input
                 readOnly
                 onChange={(e) => setEmail(e.target.value)}
@@ -100,7 +101,7 @@ const ProfileEdit = () => {
             <div>
               <label className="text-[13px] font-semibold text-gray-800 tracking-wide">
                 Address
-              </label>
+              </label><br />
               <input
                 defaultValue={data.address}
                 onChange={(e) => setAddress(e.target.value)}
@@ -109,12 +110,12 @@ const ProfileEdit = () => {
               />
             </div>
 
-            <div className="flex justify-end pt-10 ">
+            <div className="py-8 ">
               <button
                 type="submit"
                 className="btn bg-green-400 hover:bg-green-600 text-white border-none"
               >
-                Update <IoMdCheckmark />{" "}
+                Update <IoMdCheckmark size={25}/>{" "}
               </button>
             </div>
           </div>
